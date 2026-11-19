@@ -27,6 +27,16 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 .skip{position:absolute;left:-9999px;top:0;z-index:100;padding:14px 20px;background:#7C3AED;color:#FFFFFF;font:600 15px/1.2 Inter,system-ui,sans-serif;text-decoration:none}
 .skip:focus,.skip:hover{color:#FFFFFF}
 .skip:focus{left:0}
+.svc::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background:#FFFFFF;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.svc::before{content:"";position:absolute;left:0;top:-1px;bottom:0;width:3px;background:#7C3AED;transform:scaleY(0);transform-origin:top;transition:transform .3s ease .05s}
+.svc-num,.svc-txt,.svc-arrow{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.svc:hover::after,.svc:focus-visible::after{transform:scaleX(1)}
+.svc:hover::before,.svc:focus-visible::before{transform:scaleY(1)}
+.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(20px)}
+.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:translateX(-16px)}
+@media (max-width:700px){.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(10px)}.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:none}}
+@media (min-width:900px){.svc-intro{position:sticky;top:32px}}
+@media (prefers-reduced-motion:reduce){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow{transition:none}}
 header{position:relative}
 .menu-btn{display:none}
 .menu-links{display:contents}
@@ -117,56 +127,80 @@ We build what we promise.</h1>
 
 <section aria-label="What we deliver" style="background: #F4F4F6">
 <div style="max-width: 1120px; margin: 0 auto; padding: 120px 24px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
+<div class="svc-intro" style="flex: 1 1 300px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6D28D9">What we deliver</p>
-<h2 style="margin: 0; max-width: 18em; font-family: Oswald, sans-serif; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance">Construction, start to finish.</h2>
-<p style="margin: 16px 0 0; max-width: 38em; font-size: 18px; color: #4B4B57">Concrete, framing, envelope and interiors, supplied and installed across British Columbia.</p>
-<ul style="margin: 48px 0 0; padding: 0; list-style: none; border-bottom: 2px solid #14141A">
+<h2 style="margin: 0; max-width: 12em; font-family: Oswald, sans-serif; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance">Construction, start to finish.</h2>
+<p style="margin: 16px 0 0; max-width: 26em; font-size: 18px; line-height: 1.6; color: #4B4B57; text-wrap: pretty">Concrete, framing, envelope and interiors, supplied and installed across British Columbia.</p>
+</div>
+<div style="flex: 2 1 520px; min-width: 0">
+<ul style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #D4D4DC">
 <li>
-<a href="/what-we-do.html#concrete" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; padding: 26px 0; border-top: 2px solid #14141A; color: #14141A; text-decoration: none">
-<span style="flex: none; width: 44px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">01</span>
-<h3 style="flex: 1 1 400px; min-width: 0; margin: 0; font-family: Oswald, sans-serif; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Cast-in-place concrete</h3>
-<span style="flex: 1 1 320px; min-width: 0; font-size: 16px; color: #4B4B57">Formwork, reinforcing steel, placing and finishing.</span>
+<a href="/what-we-do.html#concrete" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">01</span>
+<div class="svc-txt" style="flex: 1; min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Cast-in-place concrete</h3>
+<span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #4B4B57">Formwork, reinforcing steel, placing and finishing.</span>
+</div>
+<span class="svc-arrow" style="flex: none; padding-top: 6px; color: #6D28D9"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#wood-frame" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; padding: 26px 0; border-top: 2px solid #14141A; color: #14141A; text-decoration: none">
-<span style="flex: none; width: 44px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">02</span>
-<h3 style="flex: 1 1 400px; min-width: 0; margin: 0; font-family: Oswald, sans-serif; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Wood-frame construction</h3>
-<span style="flex: 1 1 320px; min-width: 0; font-size: 16px; color: #4B4B57">Framing, sheathing and rough carpentry.</span>
+<a href="/what-we-do.html#wood-frame" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">02</span>
+<div class="svc-txt" style="flex: 1; min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Wood-frame construction</h3>
+<span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #4B4B57">Framing, sheathing and rough carpentry.</span>
+</div>
+<span class="svc-arrow" style="flex: none; padding-top: 6px; color: #6D28D9"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#building-envelope" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; padding: 26px 0; border-top: 2px solid #14141A; color: #14141A; text-decoration: none">
-<span style="flex: none; width: 44px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">03</span>
-<h3 style="flex: 1 1 400px; min-width: 0; margin: 0; font-family: Oswald, sans-serif; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Building envelope</h3>
-<span style="flex: 1 1 320px; min-width: 0; font-size: 16px; color: #4B4B57">Cladding, membranes, waterproofing, windows and doors.</span>
+<a href="/what-we-do.html#building-envelope" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">03</span>
+<div class="svc-txt" style="flex: 1; min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Building envelope</h3>
+<span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #4B4B57">Cladding, membranes, waterproofing, windows and doors.</span>
+</div>
+<span class="svc-arrow" style="flex: none; padding-top: 6px; color: #6D28D9"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#interior-finishes" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; padding: 26px 0; border-top: 2px solid #14141A; color: #14141A; text-decoration: none">
-<span style="flex: none; width: 44px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">04</span>
-<h3 style="flex: 1 1 400px; min-width: 0; margin: 0; font-family: Oswald, sans-serif; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Walls, ceilings and finishes</h3>
-<span style="flex: 1 1 320px; min-width: 0; font-size: 16px; color: #4B4B57">Steel stud, drywall, insulation, acoustic ceilings, painting and flooring.</span>
+<a href="/what-we-do.html#interior-finishes" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">04</span>
+<div class="svc-txt" style="flex: 1; min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Walls, ceilings and finishes</h3>
+<span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #4B4B57">Steel stud, drywall, insulation, acoustic ceilings, painting and flooring.</span>
+</div>
+<span class="svc-arrow" style="flex: none; padding-top: 6px; color: #6D28D9"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#renovations" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; padding: 26px 0; border-top: 2px solid #14141A; color: #14141A; text-decoration: none">
-<span style="flex: none; width: 44px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">05</span>
-<h3 style="flex: 1 1 400px; min-width: 0; margin: 0; font-family: Oswald, sans-serif; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Renovations and tenant improvements</h3>
-<span style="flex: 1 1 320px; min-width: 0; font-size: 16px; color: #4B4B57">Offices, retail and occupied spaces.</span>
+<a href="/what-we-do.html#renovations" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">05</span>
+<div class="svc-txt" style="flex: 1; min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Renovations and tenant improvements</h3>
+<span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #4B4B57">Offices, retail and occupied spaces.</span>
+</div>
+<span class="svc-arrow" style="flex: none; padding-top: 6px; color: #6D28D9"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#site-work" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 32px; padding: 26px 0; border-top: 2px solid #14141A; color: #14141A; text-decoration: none">
-<span style="flex: none; width: 44px; font-family: Oswald, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">06</span>
-<h3 style="flex: 1 1 400px; min-width: 0; margin: 0; font-family: Oswald, sans-serif; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Site work</h3>
-<span style="flex: 1 1 320px; min-width: 0; font-size: 16px; color: #4B4B57">Excavation, backfill and site preparation.</span>
+<a href="/what-we-do.html#site-work" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">06</span>
+<div class="svc-txt" style="flex: 1; min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Site work</h3>
+<span style="display: block; margin-top: 6px; font-size: 15px; line-height: 1.6; color: #4B4B57">Excavation, backfill and site preparation.</span>
+</div>
+<span class="svc-arrow" style="flex: none; padding-top: 6px; color: #6D28D9"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
 </a>
 </li>
 </ul>
 <a href="/what-we-do.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 28px; font-size: 16px; font-weight: 600; color: #6D28D9; text-decoration: none">See all capabilities
-<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none; display: block"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </a>
+</div>
+</div>
 </div>
 </section>
 
