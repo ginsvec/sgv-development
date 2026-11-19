@@ -56,22 +56,22 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 <div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 104px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
 <form id="enquiry" aria-label="Project enquiry form" style="flex: 999 1 480px; min-width: 0; display: flex; flex-wrap: wrap; gap: 20px">
 <label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Your name
-<input type="text" name="name" autocomplete="name" style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
+<input type="text" name="name" autocomplete="name" required style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
 </label>
-<label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Company
+<label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Company (optional)
 <input type="text" name="company" autocomplete="organization" style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
 </label>
 <label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Email
-<input type="email" name="email" autocomplete="email" style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
+<input type="email" name="email" autocomplete="email" required style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
 </label>
 <label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Phone (optional)
 <input type="tel" name="phone" autocomplete="tel" style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
 </label>
-<label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Project location
+<label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Project location (optional)
 <input type="text" name="location" style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
 <span style="font-size: 13px; font-weight: 400; color: #4B4B57">City or site address.</span>
 </label>
-<label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Type of work
+<label style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Type of work (optional)
 <select name="work" style="width: 100%; min-height: 50px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4">
 <option>Select an option</option>
 <option>Cast-in-place concrete</option>
@@ -85,13 +85,20 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 </select>
 </label>
 <label style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #14141A">Project details
-<textarea name="details" rows="5" style="width: 100%; min-height: 150px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4; resize: vertical"></textarea>
+<textarea name="details" rows="5" required style="width: 100%; min-height: 150px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E8A9E; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 1.4; resize: vertical"></textarea>
 <span style="font-size: 13px; font-weight: 400; color: #4B4B57">Project type and size, expected start date, and a link to the drawings if you have one.</span>
 </label>
+<div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden">
+<label>Leave this field empty
+<input type="text" name="website" tabindex="-1" autocomplete="off">
+</label>
+</div>
 <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px">
-<button type="button" id="sendbtn" style="min-height: 52px; padding: 0 28px; border: 0; border-radius: 4px; background: #7C3AED; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Send message</button>
+<button type="submit" id="sendbtn" style="min-height: 52px; padding: 0 28px; border: 0; border-radius: 4px; background: #7C3AED; color: #FFFFFF; font-family: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Send message</button>
 <p style="margin: 0; max-width: 30em; font-size: 13px; color: #4B4B57">We use the details you send only to reply to your request.</p>
 </div>
+<p id="formstatus" role="status" style="flex: 1 1 100%; min-width: 0; margin: 0; font-size: 16px; font-weight: 600; color: #14141A"></p>
+<noscript><p style="flex: 1 1 100%; margin: 0; font-size: 15px; color: #14141A">This form needs JavaScript. You can also email us at <a href="mailto:contact@sgvdevelopment.ca">contact@sgvdevelopment.ca</a>.</p></noscript>
 </form>
 <div style="flex: 1 1 320px; min-width: 0">
 <h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">What happens next</h2>
@@ -146,31 +153,68 @@ Construction contractors based in Metro Vancouver, serving all of British Columb
 </div>
 <script>
 (function () {
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzTzoZJ4aeemcqbhhonMEVf6xGA_G86vesQ6ksTTsmii0E3KtKQpDF6nahetNRvYG8m/exec';
   var form = document.getElementById('enquiry');
   var btn = document.getElementById('sendbtn');
-  if (!form || !btn) return;
-  function val(n) {
-    var el = form.elements[n];
-    return el && el.value ? el.value.trim() : '';
+  var status = document.getElementById('formstatus');
+  if (!form || !btn || !status) return;
+  var label = btn.textContent;
+  var busy = false;
+
+  function show(text, isError, withEmail) {
+    status.textContent = text;
+    status.style.color = isError ? '#B42318' : '#14141A';
+    if (withEmail) {
+      var a = document.createElement('a');
+      a.href = 'mailto:contact@sgvdevelopment.ca';
+      a.textContent = 'contact@sgvdevelopment.ca';
+      status.appendChild(document.createTextNode(' '));
+      status.appendChild(a);
+      status.appendChild(document.createTextNode('.'));
+    }
   }
-  btn.addEventListener('click', function () {
-    var work = val('work');
-    if (work === 'Select an option') work = '';
-    var lines = [
-      ['Name', val('name')],
-      ['Company', val('company')],
-      ['Email', val('email')],
-      ['Phone', val('phone')],
-      ['Project location', val('location')],
-      ['Type of work', work],
-      ['Project details', val('details')]
-    ].filter(function (r) { return r[1]; })
-     .map(function (r) { return r[0] + ': ' + r[1]; });
-    var subject = 'Project enquiry' + (val('company') ? ' from ' + val('company') : '');
-    var href = 'mailto:contact@sgvdevelopment.ca'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(lines.join('\n\n'));
-    window.location.href = href;
+
+  function done() {
+    busy = false;
+    btn.disabled = false;
+    btn.textContent = label;
+    btn.style.opacity = '';
+    btn.style.cursor = 'pointer';
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (busy) return;
+    busy = true;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.style.cursor = 'default';
+    show('', false);
+
+    var data = new URLSearchParams(new FormData(form));
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 25000);
+
+    fetch(ENDPOINT, { method: 'POST', body: data, signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        clearTimeout(timer);
+        done();
+        if (res && res.ok) {
+          form.reset();
+          show('Thank you. Your message has been sent. We will reply by email.', false);
+        } else if (res && res.error === 'invalid') {
+          show('Please check your name, email and project details, then send again.', true);
+        } else {
+          show('We could not send your message. Please email us at', true, true);
+        }
+      })
+      .catch(function () {
+        clearTimeout(timer);
+        done();
+        show('We could not send your message. Please email us at', true, true);
+      });
   });
 })();
 </script>
