@@ -27,11 +27,18 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 .skip{position:absolute;left:-9999px;top:0;z-index:100;padding:14px 20px;background:#7C3AED;color:#FFFFFF;font:600 15px/1.2 Inter,system-ui,sans-serif;text-decoration:none}
 .skip:focus,.skip:hover{color:#FFFFFF}
 .skip:focus{left:0}
+header{position:relative}
+.menu-btn{display:none}
+.menu-links{display:contents}
+.menu-btn .i-close,.menu-open .menu-btn .i-open{display:none}
+.menu-open .menu-btn .i-close{display:block}
+@media (max-width:700px){.js header>div{flex-wrap:nowrap!important}.js header nav{flex-wrap:nowrap!important;gap:8px 10px!important}.js .menu-links{display:none}.js .menu-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:1px solid #3A3A46;border-radius:4px;background:transparent;color:#F5F5F7;cursor:pointer}.js.menu-open .menu-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;z-index:50;padding:4px 24px 16px;background:#0B0B10;border-bottom:1px solid #26262F}.js.menu-open .menu-links a{font-size:17px}}
 @media (max-width:700px){.eb-loc{display:none}}
 .hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:right center}
 .hero-fade{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,#0B0B10 0,#0B0B10 calc(max(24px, 50vw - 536px) + 2.48 * clamp(64px, 13vw, 184px)),rgba(11,11,16,.6) 100%)}
 @media (max-width:640px){.hero-fade{background:linear-gradient(180deg,#0B0B10 0,#0B0B10 35%,rgba(11,11,16,0) 75%),linear-gradient(90deg,#0B0B10 0,#0B0B10 calc(max(24px, 50vw - 536px) + 2.48 * clamp(64px, 13vw, 184px)),rgba(11,11,16,.6) 100%)}}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -66,14 +73,37 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 <img src="/logo.svg" alt="" width="87" height="56" style="display: block; flex: none; width: 87.1px; height: 56px">
 </a>
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px; font-weight: 500">
+<div id="menu-links" class="menu-links">
 <a href="/who-we-are.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #D4D4DC; text-decoration: none">Who We Are</a>
 <a href="/what-we-do.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #D4D4DC; text-decoration: none">What We Deliver</a>
 <a href="/safety.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #D4D4DC; text-decoration: none">Safety</a>
 <a href="/careers.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #D4D4DC; text-decoration: none">Careers</a>
+</div>
 <a href="/contact.html" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 18px; border-radius: 4px; background: #7C3AED; color: #FFFFFF; font-weight: 600; text-decoration: none; white-space: nowrap">Contact</a>
+<button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-links" aria-label="Menu"><svg class="i-open" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5.5H17M3 10H17M3 14.5H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-close" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
 </nav>
 </div>
 </header>
+<script>
+(function () {
+  var btn = document.querySelector('.menu-btn'), links = document.getElementById('menu-links');
+  if (!btn || !links) return;
+  var root = document.documentElement;
+  function set(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    root.classList.toggle('menu-open', open);
+  }
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') !== 'true';
+    set(open);
+    if (open) { var first = links.querySelector('a'); if (first) first.focus(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && root.classList.contains('menu-open')) { set(false); btn.focus(); }
+  });
+  window.addEventListener('resize', function () { if (window.innerWidth > 700) set(false); });
+})();
+</script>
 
 <main id="main">
 <section id="top" style="position: relative; overflow: hidden; background: #0B0B10; color: #F5F5F7">
