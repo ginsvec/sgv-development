@@ -36,6 +36,7 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 .svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:translateX(-16px)}
 @media (max-width:700px){.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(10px)}.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:none}}
 @media (min-width:900px){.svc-intro{position:sticky;top:32px}}
+@media (hover:none){.svc.on::after{transform:scaleX(1)}.svc.on::before{transform:scaleY(1)}.svc.on .svc-num,.svc.on .svc-txt{transform:translateX(10px)}}
 @media (prefers-reduced-motion:reduce){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow{transition:none}}
 header{position:relative}
 .menu-btn{display:none}
@@ -203,6 +204,29 @@ We build what we promise.</h1>
 </div>
 </div>
 </section>
+<script>
+(function () {
+  if (typeof window.matchMedia === 'undefined' || matchMedia('(hover: none)').matches === false) return;
+  var rows = [].slice.call(document.querySelectorAll('a.svc'));
+  if (rows.length === 0) return;
+  var cur = null, ticking = false;
+  function update() {
+    ticking = false;
+    var mid = window.innerHeight / 2, best = null, bd = window.innerHeight * 0.25;
+    rows.forEach(function (r) {
+      var b = r.getBoundingClientRect(), d = Math.abs(b.top + b.height / 2 - mid);
+      if (d < bd) { bd = d; best = r; }
+    });
+    if (best === cur) return;
+    if (cur) cur.classList.remove('on');
+    if (best) best.classList.add('on');
+    cur = best;
+  }
+  window.addEventListener('scroll', function () { if (ticking === false) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 
 <section aria-label="Our commitment" style="background: #0B0B10; color: #F5F5F7">
 <div style="max-width: 1120px; margin: 0 auto; padding: 128px 24px; box-sizing: border-box">
