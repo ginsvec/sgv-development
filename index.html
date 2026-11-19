@@ -27,6 +27,9 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 .skip{position:absolute;left:-9999px;top:0;z-index:100;padding:14px 20px;background:#7C3AED;color:#FFFFFF;font:600 15px/1.2 Inter,system-ui,sans-serif;text-decoration:none}
 .skip:focus,.skip:hover{color:#FFFFFF}
 .skip:focus{left:0}
+.hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.hero-fade{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,#0B0B10 0,#0B0B10 calc(max(24px, 50vw - 536px) + 2.48 * clamp(64px, 13vw, 184px)),rgba(11,11,16,.6) 100%)}
+@media (max-width:640px){.hero-fade{background:linear-gradient(180deg,#0B0B10 0,#0B0B10 35%,rgba(11,11,16,0) 75%),linear-gradient(90deg,#0B0B10 0,#0B0B10 calc(max(24px, 50vw - 536px) + 2.48 * clamp(64px, 13vw, 184px)),rgba(11,11,16,.6) 100%)}}
 </style>
 <script type="application/ld+json">
 {
@@ -72,11 +75,14 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 </header>
 
 <main id="main">
-<section id="top" style="background: #0B0B10; color: #F5F5F7">
-<div style="max-width: 1120px; margin: 0 auto; padding: 152px 24px; box-sizing: border-box">
+<section id="top" style="position: relative; overflow: hidden; background: #0B0B10; color: #F5F5F7">
+<img class="hero-img" src="/hero-rebar.webp" width="1920" height="1080" alt="" fetchpriority="high" decoding="async">
+<div class="hero-fade" aria-hidden="true"></div>
+<div style="position: relative; max-width: 1120px; margin: 0 auto; padding: clamp(88px, 9vw, 120px) 24px; box-sizing: border-box">
 <div aria-hidden="true" style="width: 64px; height: 3px; margin-bottom: 24px; background: #7C3AED"></div>
 <h1 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(64px, 13vw, 184px); line-height: 0.95; letter-spacing: 0.01em; font-weight: 400; text-transform: uppercase"><span style="display: block; margin: 0 0 16px; font-family: Inter, system-ui, sans-serif; font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: 0.18em; color: #A78BFA">Construction contractors &middot; Metro Vancouver, BC</span>
 We build.</h1>
+<p style="margin: 28px 0 0; max-width: 34em; font-size: 18px; line-height: 1.6; color: #D4D4DC">From formwork to finishes, built safely across British Columbia.</p>
 </div>
 </section>
 
