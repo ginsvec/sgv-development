@@ -100,16 +100,23 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 <p id="formstatus" role="status" style="flex: 1 1 100%; min-width: 0; margin: 0; font-size: 16px; font-weight: 600; color: #14141A"></p>
 <noscript><p style="flex: 1 1 100%; margin: 0; font-size: 15px; color: #14141A">This form needs JavaScript. You can also email us at <a href="mailto:contact@sgvdevelopment.ca">contact@sgvdevelopment.ca</a>.</p></noscript>
 </form>
+<div id="enquirydone" style="flex: 999 1 480px; min-width: 0; display: none; flex-direction: column; align-items: flex-start; gap: 18px">
+<div aria-hidden="true" style="width: 44px; height: 3px; background: #7C3AED"></div>
+<p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6D28D9">Enquiry sent</p>
+<h2 id="enquirydonetitle" tabindex="-1" style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance; outline: none">Thank you. We have your enquiry.</h2>
+<p style="margin: 0; max-width: 34em; font-size: 17px; color: #2A2A33">We sent a confirmation to your email. Next, we will contact you to schedule a site visit. If you have drawings, reply to that email and attach them.</p>
+<button type="button" id="enquiryagain" style="min-height: 48px; margin-top: 6px; padding: 0 22px; border: 1px solid #14141A; border-radius: 4px; background: #FFFFFF; color: #14141A; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Send another enquiry</button>
+</div>
 <div style="flex: 1 1 320px; min-width: 0">
 <h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">What happens next</h2>
 <ol style="display: flex; flex-direction: column; gap: 16px; margin: 18px 0 0; padding: 0; list-style: none">
 <li style="display: flex; gap: 12px; font-size: 15px; color: #4B4B57">
 <span aria-hidden="true" style="flex: none; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #14141A; color: #FFFFFF; font-size: 13px; font-weight: 600">1</span>
-<span style="padding-top: 2px">We review your request and ask for drawings if we need them.</span>
+<span style="padding-top: 2px">We review your request and your drawings.</span>
 </li>
 <li style="display: flex; gap: 12px; font-size: 15px; color: #4B4B57">
 <span aria-hidden="true" style="flex: none; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #14141A; color: #FFFFFF; font-size: 13px; font-weight: 600">2</span>
-<span style="padding-top: 2px">We confirm the scope, quantities and schedule with you.</span>
+<span style="padding-top: 2px">We visit the site with you to confirm the scope, quantities and schedule.</span>
 </li>
 <li style="display: flex; gap: 12px; font-size: 15px; color: #4B4B57">
 <span aria-hidden="true" style="flex: none; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #14141A; color: #FFFFFF; font-size: 13px; font-weight: 600">3</span>
@@ -157,7 +164,10 @@ Construction contractors based in Metro Vancouver, serving all of British Columb
   var form = document.getElementById('enquiry');
   var btn = document.getElementById('sendbtn');
   var status = document.getElementById('formstatus');
-  if (!form || !btn || !status) return;
+  var donebox = document.getElementById('enquirydone');
+  var donetitle = document.getElementById('enquirydonetitle');
+  var again = document.getElementById('enquiryagain');
+  if (!form || !btn || !status || !donebox || !donetitle || !again) return;
   var label = btn.textContent;
   var busy = false;
 
@@ -182,6 +192,13 @@ Construction contractors based in Metro Vancouver, serving all of British Columb
     btn.style.cursor = 'pointer';
   }
 
+  again.addEventListener('click', function () {
+    donebox.style.display = 'none';
+    form.style.display = 'flex';
+    var first = form.elements['name'];
+    if (first) first.focus();
+  });
+
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     if (busy) return;
@@ -203,7 +220,10 @@ Construction contractors based in Metro Vancouver, serving all of British Columb
         done();
         if (res && res.ok) {
           form.reset();
-          show('Thank you. Your message has been sent. We will reply by email.', false);
+          show('', false);
+          form.style.display = 'none';
+          donebox.style.display = 'flex';
+          donetitle.focus();
         } else if (res && res.error === 'invalid') {
           show('Please complete the required fields, then send again.', true);
         } else {
