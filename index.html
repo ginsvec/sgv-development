@@ -30,14 +30,11 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 .svc::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background:#FFFFFF;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .svc::before{content:"";position:absolute;left:0;top:-1px;bottom:0;width:3px;background:#7C3AED;transform:scaleY(0);transform-origin:top;transition:transform .3s ease .05s}
 .svc-num,.svc-txt,.svc-arrow{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
-.svc:hover::after,.svc:focus-visible::after{transform:scaleX(1)}
-.svc:hover::before,.svc:focus-visible::before{transform:scaleY(1)}
-.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(20px)}
-.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:translateX(-16px)}
-@media (max-width:700px){.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(10px)}.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:none}}
+@media (hover:hover){.svc:hover::after,.svc:focus-visible::after{transform:scaleX(1)}.svc:hover::before,.svc:focus-visible::before{transform:scaleY(1)}.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(20px)}.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:translateX(-16px)}}
+@media (hover:hover) and (max-width:700px){.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(10px)}.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:none}}
 @media (min-width:900px){.svc-intro{position:sticky;top:32px}}
-@media (hover:none){.svc.on::after{transform:scaleX(1)}.svc.on::before{transform:scaleY(1)}.svc.on .svc-num,.svc.on .svc-txt{transform:translateX(10px)}}
-@media (prefers-reduced-motion:reduce){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow{transition:none}}
+@media (hover:none){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow{transition:none}.svc.on::after{transform:scaleX(1);transition:transform .45s cubic-bezier(.2,.7,.2,1)}.svc.on::before{transform:scaleY(1);transition:transform .3s ease .05s}.svc.on .svc-num,.svc.on .svc-txt{transform:translateX(10px);transition:transform .45s cubic-bezier(.2,.7,.2,1)}}
+@media (prefers-reduced-motion:reduce){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow,.svc.on::after,.svc.on::before,.svc.on .svc-num,.svc.on .svc-txt{transition:none}}
 header{position:relative}
 .menu-btn{display:none}
 .menu-links{display:contents}
@@ -212,12 +209,16 @@ We build what we promise.</h1>
   var cur = null, ticking = false;
   function update() {
     ticking = false;
-    var mid = window.innerHeight / 2, best = null, bd = window.innerHeight * 0.25;
+    var mid = window.innerHeight / 2, band = window.innerHeight * 0.25, best = null, bd = band;
     rows.forEach(function (r) {
       var b = r.getBoundingClientRect(), d = Math.abs(b.top + b.height / 2 - mid);
       if (d < bd) { bd = d; best = r; }
     });
     if (best === cur) return;
+    if (cur && best) {
+      var c = cur.getBoundingClientRect(), cd = Math.abs(c.top + c.height / 2 - mid);
+      if (cd < band && cd - bd < 24) return;
+    }
     if (cur) cur.classList.remove('on');
     if (best) best.classList.add('on');
     cur = best;
