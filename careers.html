@@ -44,6 +44,11 @@ header{position:relative}
 .menu-btn .i-close,.menu-open .menu-btn .i-open{display:none}
 .menu-open .menu-btn .i-close{display:block}
 @media (max-width:700px){.js header>div{flex-wrap:nowrap!important}.js header nav{flex-wrap:nowrap!important;gap:8px 10px!important}.js .menu-links{display:none}.js .menu-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:1px solid #3A3A46;border-radius:4px;background:transparent;color:#F5F5F7;cursor:pointer}.js.menu-open .menu-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;z-index:50;padding:4px 24px 16px;background:#0B0B10;border-bottom:1px solid #26262F}.js.menu-open .menu-links a{font-size:17px}}
+.rv{opacity:0}
+.rv.in{opacity:1;transition:opacity .7s cubic-bezier(.2,.7,.2,1)}
+.rv:focus-within{opacity:1}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1}.rv.in{transition:none}}
+@media print{.rv{opacity:1}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -167,5 +172,41 @@ Construction contractors based in Metro Vancouver, serving all of British Columb
 </footer>
 
 </div>
+<script>
+(function () {
+  if (typeof window.IntersectionObserver === 'undefined' || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var secs = document.querySelectorAll('main > section'), targets = [];
+  for (var i = 1; i < secs.length; i++) {
+    var list = secs[i].querySelectorAll('h2, p, li, dl > div, div > a, .cap');
+    for (var j = 0; j < list.length; j++) {
+      var el = list[j];
+      if (el.closest('form') || el.parentElement.closest('li, .cap')) continue;
+      targets.push(el);
+    }
+  }
+  if (targets.length === 0) return;
+  var io = new IntersectionObserver(function (entries) {
+    var vh = window.innerHeight, k = 0;
+    entries.sort(function (a, b) { return (a.boundingClientRect.top - b.boundingClientRect.top) || (a.boundingClientRect.left - b.boundingClientRect.left); });
+    entries.forEach(function (e) {
+      var el = e.target;
+      if (el.hasAttribute('data-rv') === false) {
+        el.setAttribute('data-rv', '');
+        if (e.boundingClientRect.top < vh) { io.unobserve(el); el.removeAttribute('data-rv'); return; }
+        el.classList.add('rv');
+        return;
+      }
+      if (e.isIntersecting === false) return;
+      io.unobserve(el);
+      var d = Math.min(k, 4) * 90;
+      k++;
+      el.style.transitionDelay = d + 'ms';
+      el.classList.add('in');
+      setTimeout(function () { el.classList.remove('rv', 'in'); el.style.transitionDelay = ''; el.removeAttribute('data-rv'); }, d + 800);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
