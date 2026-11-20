@@ -34,7 +34,8 @@ a{color:#6D28D9}a:hover{color:#5B21B6}
 @media (hover:hover) and (max-width:700px){.svc:hover .svc-num,.svc:hover .svc-txt,.svc:focus-visible .svc-num,.svc:focus-visible .svc-txt{transform:translateX(10px)}.svc:hover .svc-arrow,.svc:focus-visible .svc-arrow{transform:none}}
 @media (min-width:900px){.svc-intro{position:sticky;top:32px}}
 @media (hover:none){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow{transition:none}.svc::after{transform:none;opacity:0}.svc.on::after{opacity:1;transition:opacity .35s ease}}
-@media (hover:none) and (max-width:939px){.svc::after{left:-24px;right:-24px}}
+.svc-list{border-bottom:1px solid #D4D4DC}.svc{border-top:1px solid #D4D4DC}
+@media (hover:none) and (max-width:939px){.svc::after{left:-24px;right:-24px}.svc{border-top-color:transparent}.svc-list{border-bottom-color:transparent}}
 @media (prefers-reduced-motion:reduce){.svc::after,.svc::before,.svc-num,.svc-txt,.svc-arrow,.svc.on::after,.svc.on::before,.svc.on .svc-num,.svc.on .svc-txt{transition:none}}
 header{position:relative}
 .menu-btn{display:none}
@@ -133,9 +134,9 @@ We build what we promise.</h1>
 <p style="margin: 16px 0 0; max-width: 26em; font-size: 18px; line-height: 1.6; color: #4B4B57; text-wrap: pretty">Concrete, framing, envelope and interiors, supplied and installed across British Columbia.</p>
 </div>
 <div style="flex: 2 1 520px; min-width: 0">
-<ul style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #D4D4DC">
+<ul class="svc-list" style="margin: 0; padding: 0; list-style: none">
 <li>
-<a href="/what-we-do.html#concrete" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<a href="/what-we-do.html#concrete" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; color: #14141A; text-decoration: none">
 <span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">01</span>
 <div class="svc-txt" style="flex: 1; min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Cast-in-place concrete</h3>
@@ -145,7 +146,7 @@ We build what we promise.</h1>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#wood-frame" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<a href="/what-we-do.html#wood-frame" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; color: #14141A; text-decoration: none">
 <span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">02</span>
 <div class="svc-txt" style="flex: 1; min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Wood-frame construction</h3>
@@ -155,7 +156,7 @@ We build what we promise.</h1>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#building-envelope" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<a href="/what-we-do.html#building-envelope" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; color: #14141A; text-decoration: none">
 <span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">03</span>
 <div class="svc-txt" style="flex: 1; min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Building envelope</h3>
@@ -165,7 +166,7 @@ We build what we promise.</h1>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#interior-finishes" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<a href="/what-we-do.html#interior-finishes" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; color: #14141A; text-decoration: none">
 <span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">04</span>
 <div class="svc-txt" style="flex: 1; min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Walls, ceilings and finishes</h3>
@@ -175,7 +176,7 @@ We build what we promise.</h1>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#renovations" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<a href="/what-we-do.html#renovations" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; color: #14141A; text-decoration: none">
 <span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">05</span>
 <div class="svc-txt" style="flex: 1; min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Renovations and tenant improvements</h3>
@@ -185,7 +186,7 @@ We build what we promise.</h1>
 </a>
 </li>
 <li>
-<a href="/what-we-do.html#site-work" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; border-top: 1px solid #D4D4DC; color: #14141A; text-decoration: none">
+<a href="/what-we-do.html#site-work" class="svc" style="position: relative; isolation: isolate; display: flex; align-items: flex-start; gap: 20px; padding: 22px 0; color: #14141A; text-decoration: none">
 <span class="svc-num" style="flex: none; width: 32px; padding-top: 4px; font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">06</span>
 <div class="svc-txt" style="flex: 1; min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.2; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Site work</h3>
