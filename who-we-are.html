@@ -49,6 +49,16 @@ header{position:relative}
 .rv:focus-within{opacity:1}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1}.rv.in{transition:none}}
 @media print{.rv{opacity:1}}
+main p{text-wrap:pretty}
+.arrow-link{text-decoration:none}
+.arrow-link svg{transition:transform .2s ease}
+@media (hover:hover){.arrow-link:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}.arrow-link:hover svg{transform:translateX(4px)}}
+.arrow-link:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.arrow-link:focus-visible svg{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){.arrow-link svg{transition:none}}
+.text-link{color:#6D28D9;text-decoration:none}
+@media (hover:hover){.text-link:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}}
+.text-link:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -113,6 +123,20 @@ header{position:relative}
 <p style="margin: 0; font-size: 18px; color: #2A2A33">SGV Development is a construction company based in Metro Vancouver. We take on residential, commercial and <span style="white-space: nowrap">mixed-use</span> projects across British Columbia.</p>
 <p style="margin: 16px 0 0; font-size: 18px; color: #4B4B57">We supply and install, from the concrete structure to the envelope and the interior finishes. Our site supervision runs every job, and a foreman is your single point of contact.</p>
 <p style="margin: 16px 0 0; font-size: 18px; color: #4B4B57">That gives you one company that answers for the quality, the schedule and the safety on site.</p>
+<dl style="display: flex; flex-wrap: wrap; gap: 16px 32px; margin: 32px 0 0; padding-top: 24px; border-top: 1px solid #D4D4DC">
+<div style="min-width: 0">
+<dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B4B57">Based in</dt>
+<dd style="margin: 6px 0 0; font-size: 16px; color: #14141A">Metro Vancouver, BC</dd>
+</div>
+<div style="min-width: 0">
+<dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B4B57">Service area</dt>
+<dd style="margin: 6px 0 0; font-size: 16px; color: #14141A">British Columbia</dd>
+</div>
+<div style="min-width: 0">
+<dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B4B57">Contact</dt>
+<dd style="margin: 6px 0 0; font-size: 16px"><a href="mailto:contact@sgvdevelopment.ca" class="text-link" style="display: inline-flex; align-items: center; min-height: 24px">contact@sgvdevelopment.ca</a></dd>
+</div>
+</dl>
 </div>
 </div>
 </section>
@@ -120,8 +144,11 @@ header{position:relative}
 <section aria-label="Our commitment" style="background: #0B0B10; color: #F5F5F7">
 <div style="max-width: 1120px; margin: 0 auto; padding: 112px 24px; box-sizing: border-box">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">Our commitment</p>
-<h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(36px, 6vw, 80px); line-height: 1.04; letter-spacing: 0.015em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Our word is our foundation.</h2>
-<p style="margin: 24px 0 0; max-width: 34em; font-size: clamp(17px, 1.9vw, 20px); color: #B4B4C0">The scope, the schedule and the price we agree to are the ones we deliver.</p>
+<h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(34px, 4.8vw, 56px); line-height: 1.04; letter-spacing: 0.015em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Our word is our foundation.</h2>
+<p style="margin: 24px 0 0; max-width: 34em; font-size: clamp(17px, 1.9vw, 20px); color: #B4B4C0">Every quote starts with a site visit. That is how we set a scope, a schedule and a price we can keep.</p>
+<a href="/contact.html#enquiry" class="arrow-link" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 20px; font-size: 16px; font-weight: 600; color: #A78BFA">Request a site visit
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
 </div>
 </section>
 
@@ -130,46 +157,27 @@ header{position:relative}
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6D28D9">Our values</p>
 <h2 style="margin: 0; max-width: 18em; font-family: Oswald, sans-serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance">What we stand for.</h2>
 <ol style="display: flex; flex-wrap: wrap; gap: 36px 32px; margin: 48px 0 0; padding: 0; list-style: none">
-<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">01</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Safety first</h3>
 <p style="margin: 10px 0 0; max-width: 34em; font-size: 16px; color: #4B4B57">Safety is planned into every job from the start. No schedule or price is worth an injury.</p>
 </li>
-<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">02</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Workmanship</h3>
 <p style="margin: 10px 0 0; max-width: 34em; font-size: 16px; color: #4B4B57">Every pour, every wall and every finish is done to the drawings and checked before handover.</p>
 </li>
-<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">03</span>
-<h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Commitment</h3>
-<p style="margin: 10px 0 0; max-width: 34em; font-size: 16px; color: #4B4B57">We stand behind the scope, the schedule and the price we agree to.</p>
+<h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Respect for the site</h3>
+<p style="margin: 10px 0 0; max-width: 34em; font-size: 16px; color: #4B4B57">We keep the site clean, protect finished work and respect the neighbours.</p>
 </li>
-<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 420px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">04</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 24px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Durability</h3>
 <p style="margin: 10px 0 0; max-width: 34em; font-size: 16px; color: #4B4B57">We build to last, not just to pass inspection.</p>
 </li>
 </ol>
-</div>
-</section>
-
-<section aria-label="Company facts" style="background: #FFFFFF">
-<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px; box-sizing: border-box">
-<dl style="display: flex; flex-wrap: wrap; gap: 20px 32px; margin: 0">
-<div style="flex: 1 1 200px; min-width: 0">
-<dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B4B57">Based in</dt>
-<dd style="margin: 6px 0 0; font-size: 16px; color: #14141A">Metro Vancouver, BC</dd>
-</div>
-<div style="flex: 1 1 200px; min-width: 0">
-<dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B4B57">Service area</dt>
-<dd style="margin: 6px 0 0; font-size: 16px; color: #14141A">British Columbia</dd>
-</div>
-<div style="flex: 1 1 200px; min-width: 0">
-<dt style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B4B57">Contact</dt>
-<dd style="margin: 6px 0 0; font-size: 16px; color: #14141A"><a href="mailto:contact@sgvdevelopment.ca" style="display: inline-flex; align-items: center; min-height: 24px; color: inherit; text-decoration: none">contact@sgvdevelopment.ca</a></dd>
-</div>
-</dl>
 </div>
 </section>
 
