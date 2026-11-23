@@ -51,6 +51,12 @@ header{position:relative}
 .rv:focus-within{opacity:1}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1}.rv.in{transition:none}}
 @media print{.rv{opacity:1}}
+main p, main li > span{text-wrap:pretty}
+main h3{text-wrap:balance}
+.how-list{display:grid;grid-template-columns:1fr;gap:36px 32px}
+@media (min-width:600px){.how-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.how-list{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:700px){.eb-loc{display:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -99,8 +105,8 @@ header{position:relative}
 <main id="main">
 <section style="background: #0B0B10; color: #F5F5F7">
 <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px 96px; box-sizing: border-box">
-<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">What we deliver</p>
-<h1 style="margin: 0; max-width: 16em; font-family: Oswald, sans-serif; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Construction, start to finish.</h1>
+<h1 style="margin: 0; max-width: 16em; font-family: Oswald, sans-serif; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance"><span style="display: block; margin: 0 0 16px; font-family: Inter, system-ui, sans-serif; font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: 0.18em; color: #A78BFA; text-wrap: wrap">Construction services<span class="eb-loc"> &middot; British Columbia</span></span>
+Construction, start to finish.</h1>
 <p style="margin: 24px 0 0; max-width: 36em; font-size: clamp(17px, 1.9vw, 20px); color: #B4B4C0">We supply and install, from the first pour to the final coat, under our own site supervision.</p>
 </div>
 </section>
@@ -241,7 +247,7 @@ header{position:relative}
 <div style="max-width: 1120px; margin: 0 auto; padding: 112px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: flex-end">
 <div style="flex: 6 1 420px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">Project types</p>
-<h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(32px, 5vw, 68px); line-height: 1.05; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Residential, commercial and <span style="white-space: nowrap">mixed-use</span>.</h2>
+<h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.05; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Residential, commercial and <span style="white-space: nowrap">mixed-use</span>.</h2>
 </div>
 <p style="flex: 5 1 340px; min-width: 0; margin: 0; font-size: 18px; color: #B4B4C0">From concrete towers to <span style="white-space: nowrap">wood-frame</span> <span style="white-space: nowrap">mid-rises</span> and tenant improvements, across British Columbia.</p>
 </div>
@@ -250,27 +256,27 @@ header{position:relative}
 <section aria-label="How we work" style="background: #FFFFFF">
 <div style="max-width: 1120px; margin: 0 auto; padding: 104px 24px; box-sizing: border-box">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6D28D9">How we work</p>
-<h2 style="margin: 0; max-width: 18em; font-family: Oswald, sans-serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance">One company accountable for the work.</h2>
-<ol style="display: flex; flex-wrap: wrap; gap: 36px 32px; margin: 48px 0 0; padding: 0; list-style: none">
-<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<h2 style="margin: 0; max-width: 18em; font-family: Oswald, sans-serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance">From site visit to handover.</h2>
+<ol class="how-list" style="margin: 48px 0 0; padding: 0; list-style: none">
+<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">01</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 21px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Supply and install</h3>
 <p style="margin: 10px 0 0; font-size: 16px; color: #4B4B57">We provide the materials, the equipment and the crews for the work we take on.</p>
 </li>
-<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">02</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 21px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Planned in advance</h3>
-<p style="margin: 10px 0 0; font-size: 16px; color: #4B4B57">We review the drawings, the schedule and site logistics with you before we mobilize.</p>
+<p style="margin: 10px 0 0; font-size: 16px; color: #4B4B57">We visit the site and review the drawings, the schedule and site logistics with you before we mobilize.</p>
 </li>
-<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">03</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 21px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">Supervised on site</h3>
 <p style="margin: 10px 0 0; font-size: 16px; color: #4B4B57">A foreman runs the work every day and is your single point of contact.</p>
 </li>
-<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 3px solid #14141A">
+<li style="flex: 1 1 220px; min-width: 0; padding-top: 20px; border-top: 1px solid #D4D4DC">
 <span style="font-family: Oswald, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; color: #6D28D9">04</span>
 <h3 style="margin: 10px 0 0; font-family: Oswald, sans-serif; font-size: 21px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A">A clear price</h3>
-<p style="margin: 10px 0 0; font-size: 16px; color: #4B4B57">Lump sum or unit price, with inclusions and exclusions clearly listed.</p>
+<p style="margin: 10px 0 0; font-size: 16px; color: #4B4B57">Lump sum or unit rates, with inclusions and exclusions clearly listed.</p>
 </li>
 </ol>
 </div>
