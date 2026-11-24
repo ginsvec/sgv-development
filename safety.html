@@ -49,6 +49,11 @@ header{position:relative}
 .rv:focus-within{opacity:1}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1}.rv.in{transition:none}}
 @media print{.rv{opacity:1}}
+main p{text-wrap:pretty}
+main h3{text-wrap:balance}
+.safe-list{display:grid;grid-template-columns:1fr;column-gap:48px}
+@media (min-width:700px){.safe-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.eb-loc{display:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -97,21 +102,21 @@ header{position:relative}
 <main id="main">
 <section style="background: #0B0B10; color: #F5F5F7">
 <div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px 96px; box-sizing: border-box">
-<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">Safety</p>
-<h1 style="margin: 0; max-width: 16em; font-family: Oswald, sans-serif; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Safety is our core value.</h1>
+<h1 style="margin: 0; max-width: 16em; font-family: Oswald, sans-serif; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance"><span style="display: block; margin: 0 0 16px; font-family: Inter, system-ui, sans-serif; font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: 0.18em; color: #A78BFA; text-wrap: wrap">Construction safety<span class="eb-loc"> &middot; British Columbia</span></span>
+Safety is our core value.</h1>
 <p style="margin: 24px 0 0; max-width: 36em; font-size: clamp(17px, 1.9vw, 20px); color: #B4B4C0">It is planned into every job from the start, not added afterwards. Everyone goes home safe.</p>
 </div>
 </section>
 
-<section aria-label="Our commitment" style="background: #FFFFFF">
+<section aria-label="Our standard" style="background: #FFFFFF">
 <div style="max-width: 1120px; margin: 0 auto; padding: 104px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: flex-start">
 <div style="flex: 5 1 340px; min-width: 0">
-<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6D28D9">Our commitment</p>
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6D28D9">Our standard</p>
 <h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; color: #14141A; text-wrap: balance">No schedule or price is worth an injury.</h2>
 </div>
 <div style="flex: 6 1 420px; min-width: 0">
-<p style="margin: 0; font-size: 18px; color: #2A2A33">Safety is planned into every job before anyone sets foot on site.</p>
-<p style="margin: 16px 0 0; font-size: 18px; color: #4B4B57">We plan and supervise our own work, so the safety of everyone doing it is our responsibility.</p>
+<p style="margin: 0; font-size: 18px; color: #2A2A33">We identify the hazards of every task and put the controls in place before work starts. PPE is the last line of defence, not the first.</p>
+<p style="margin: 16px 0 0; font-size: 18px; color: #4B4B57">We plan and supervise our own work, so the safety of everyone doing it is our&nbsp;responsibility.</p>
 </div>
 </div>
 </section>
@@ -120,33 +125,47 @@ header{position:relative}
 <div style="max-width: 1120px; margin: 0 auto; padding: 104px 24px; box-sizing: border-box">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">On site</p>
 <h2 style="margin: 0; max-width: 18em; font-family: Oswald, sans-serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance">How we work safely.</h2>
-<ul style="display: flex; flex-wrap: wrap; gap: 0 48px; margin: 44px 0 0; padding: 0; list-style: none">
+<ul class="safe-list" style="margin: 44px 0 0; padding: 0; list-style: none">
 <li style="flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid #2E2E3A">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="14" cy="14" r="12" stroke="#A78BFA" stroke-width="2"></circle><path d="M8.5 14.5 L12.5 18.5 L19.5 10.5" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 <div style="min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Safety program and orientation</h3>
-<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">A written safety program and a site-specific orientation for every worker.</p>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">A written safety program and a site orientation before anyone starts work.</p>
 </div>
 </li>
 <li style="flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid #2E2E3A">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="14" cy="14" r="12" stroke="#A78BFA" stroke-width="2"></circle><path d="M8.5 14.5 L12.5 18.5 L19.5 10.5" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 <div style="min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Training</h3>
-<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">Fall protection, working at heights and WHMIS training.</p>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">WHMIS, fall protection and equipment training, with records kept on file.</p>
 </div>
 </li>
 <li style="flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid #2E2E3A">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="14" cy="14" r="12" stroke="#A78BFA" stroke-width="2"></circle><path d="M8.5 14.5 L12.5 18.5 L19.5 10.5" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 <div style="min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Daily toolbox talks</h3>
-<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">Led by the foreman before work starts.</p>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">Before every shift, our foreman reviews the day's tasks and hazards with the crew.</p>
 </div>
 </li>
 <li style="flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid #2E2E3A">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="14" cy="14" r="12" stroke="#A78BFA" stroke-width="2"></circle><path d="M8.5 14.5 L12.5 18.5 L19.5 10.5" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 <div style="min-width: 0">
 <h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">First aid</h3>
-<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">First aid attendant and kit coverage as required by WorkSafeBC.</p>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">Attendants and kits on site, as WorkSafeBC requires.</p>
+</div>
+</li>
+<li style="flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid #2E2E3A">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="14" cy="14" r="12" stroke="#A78BFA" stroke-width="2"></circle><path d="M8.5 14.5 L12.5 18.5 L19.5 10.5" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div style="min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Stop-work authority</h3>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">Anyone on our crews can stop a task they believe is unsafe, without fear of reprisal.</p>
+</div>
+</li>
+<li style="flex: 1 1 420px; min-width: 0; display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid #2E2E3A">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" style="flex: none; margin-top: 1px"><circle cx="14" cy="14" r="12" stroke="#A78BFA" stroke-width="2"></circle><path d="M8.5 14.5 L12.5 18.5 L19.5 10.5" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div style="min-width: 0">
+<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 20px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Incident reporting</h3>
+<p style="margin: 6px 0 0; font-size: 15px; color: #B4B4C0">Every incident and near miss is reported, investigated and reviewed with the crew.</p>
 </div>
 </li>
 </ul>
