@@ -63,7 +63,7 @@ main p{text-wrap:pretty}
 .hero-photo{position:relative;overflow:hidden;--hx:calc(max(24px, 50vw - 536px) + 26 * clamp(17px, 1.9vw, 20px) + 24px)}
 .hero-photo picture{display:contents}
 .hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:right center}
-.hero-fade{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,#0B0B10 0,#0B0B10 var(--hx),rgba(11,11,16,.88) calc(var(--hx) + 120px),rgba(11,11,16,.7) 100%)}
+.hero-fade{position:absolute;top:0;left:0;width:100%;height:100%;--hw:clamp(160px, 20vw, 320px);background:linear-gradient(90deg,#0B0B10 0,#0B0B10 var(--hx),rgba(11,11,16,.99) calc(var(--hx) + var(--hw) * .1),rgba(11,11,16,.97) calc(var(--hx) + var(--hw) * .2),rgba(11,11,16,.93) calc(var(--hx) + var(--hw) * .3),rgba(11,11,16,.89) calc(var(--hx) + var(--hw) * .4),rgba(11,11,16,.84) calc(var(--hx) + var(--hw) * .5),rgba(11,11,16,.79) calc(var(--hx) + var(--hw) * .6),rgba(11,11,16,.75) calc(var(--hx) + var(--hw) * .7),rgba(11,11,16,.71) calc(var(--hx) + var(--hw) * .8),rgba(11,11,16,.69) calc(var(--hx) + var(--hw) * .9),rgba(11,11,16,.68) calc(var(--hx) + var(--hw)),rgba(11,11,16,.5) 100%)}
 .hero-in{position:relative;max-width:1120px;margin:0 auto;padding:88px 24px 96px;box-sizing:border-box}
 .hero-photo h1{max-width:9em}
 .hero-photo h1 > span{white-space:nowrap}
