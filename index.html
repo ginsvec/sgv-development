@@ -68,8 +68,6 @@ header{position:relative}
 .js .hero-open .hero-fade::before{transform:translateX(100%);transition:transform 1.8s cubic-bezier(.2,.7,.2,1) .1s}
 .js .hero-fade::after{content:"";position:absolute;top:0;bottom:0;left:0;width:calc(100% + 240px);background:linear-gradient(90deg,#0B0B10 calc(100% - 240px),rgba(11,11,16,0) 100%);transform:translateX(var(--ht,-300vw));pointer-events:none}
 }
-.commit-list{display:grid;grid-template-columns:1fr;gap:24px}
-@media (min-width:900px){.commit-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 48px}}
 .commit p{text-wrap:pretty}
 .arrow-link{text-decoration:none}
 .arrow-link svg{transition:transform .2s ease}
@@ -300,23 +298,14 @@ We build what we promise.</h1>
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">Our commitment</p>
 <h2 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; letter-spacing: 0.015em; font-weight: 400; text-transform: uppercase; text-wrap: balance">Our word is our foundation.</h2>
 <p style="margin: 24px 0 0; max-width: 34em; font-size: clamp(18px, 2vw, 22px); color: #B4B4C0">Every quote starts with a site visit. That is how we set a scope, a schedule and a price we can keep.</p>
-<ul class="commit-list" style="margin: 48px 0 0; padding: 0; list-style: none">
-<li style="flex: 1 1 260px; min-width: 0; padding-top: 20px; border-top: 1px solid #2E2E3A">
-<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 22px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Scope in writing</h3>
-<p style="margin: 10px 0 0; font-size: 16px; color: #B4B4C0">Inclusions and exclusions are based on the drawings and the site visit, and agreed before we mobilize.</p>
-</li>
-<li style="flex: 1 1 260px; min-width: 0; padding-top: 20px; border-top: 1px solid #2E2E3A">
-<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 22px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">Dates we keep</h3>
-<p style="margin: 10px 0 0; font-size: 16px; color: #B4B4C0">The sequence and the dates are set with you before we start. If a date is at risk, you hear it from us first.</p>
-</li>
-<li style="flex: 1 1 260px; min-width: 0; padding-top: 20px; border-top: 1px solid #2E2E3A">
-<h3 style="margin: 0; font-family: Oswald, sans-serif; font-size: 22px; line-height: 1.15; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase">A price that holds</h3>
-<p style="margin: 10px 0 0; font-size: 16px; color: #B4B4C0">Lump sum or unit rates. Changes are priced and approved in writing before the work goes ahead.</p>
-</li>
-</ul>
-<a href="/contact.html#enquiry" class="arrow-link" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 40px; font-size: 16px; font-weight: 600; color: #A78BFA">Request a site visit
+<div style="display: flex; flex-wrap: wrap; gap: 4px 32px; margin-top: 28px">
+<a href="/contact.html#enquiry" class="arrow-link" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 16px; font-weight: 600; color: #A78BFA">Request a site visit
 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </a>
+<a href="/who-we-are.html#commitment" class="arrow-link" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 16px; font-weight: 600; color: #A78BFA">How we keep our word
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex: none"><path d="M3 9 H15 M10 4 L15 9 L10 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+</div>
 </div>
 </section>
 
