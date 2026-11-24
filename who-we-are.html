@@ -59,6 +59,21 @@ main p{text-wrap:pretty}
 .text-link{color:#6D28D9;text-decoration:none}
 @media (hover:hover){.text-link:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}}
 .text-link:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+@media (max-width:700px){.eb-loc{display:none}}
+.hero-photo{position:relative;overflow:hidden;--hx:calc(max(24px, 50vw - 536px) + 26 * clamp(17px, 1.9vw, 20px) + 24px)}
+.hero-photo picture{display:contents}
+.hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.hero-fade{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,#0B0B10 0,#0B0B10 var(--hx),rgba(11,11,16,.6) calc(var(--hx) + 120px),rgba(11,11,16,.6) 100%)}
+.hero-in{position:relative;max-width:1120px;margin:0 auto;padding:88px 24px 96px;box-sizing:border-box}
+.hero-photo h1{max-width:9em}
+.hero-photo h1 > span{white-space:nowrap}
+.hero-in > p{max-width:26em}
+@media (max-width:899px){.hero-photo{display:flex;flex-direction:column}.hero-in{order:1;width:100%;padding-bottom:0}.hero-photo h1{max-width:16em}.hero-in > p{max-width:36em}.hero-img{position:relative;order:2;height:clamp(280px, 72vw, 520px);object-position:58% 45%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 42%);mask-image:linear-gradient(180deg,transparent 0,#000 42%)}.hero-fade{display:none}}
+@media (prefers-reduced-motion:no-preference){
+.js .hero-fade::before{content:"";position:absolute;top:0;bottom:0;left:-240px;width:calc(100% + 240px);background:linear-gradient(90deg,rgba(11,11,16,0) 0,#0B0B10 240px);transform:translateX(0);pointer-events:none}
+.js .hero-open .hero-fade::before{transform:translateX(100%);transition:transform 1.8s cubic-bezier(.2,.7,.2,1) .1s}
+.js .hero-fade::after{content:"";position:absolute;top:0;bottom:0;left:0;width:calc(100% + 240px);background:linear-gradient(90deg,#0B0B10 calc(100% - 240px),rgba(11,11,16,0) 100%);transform:translateX(var(--ht,-300vw));pointer-events:none}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -105,13 +120,48 @@ main p{text-wrap:pretty}
 </script>
 
 <main id="main">
-<section style="background: #0B0B10; color: #F5F5F7">
-<div style="max-width: 1120px; margin: 0 auto; padding: 88px 24px 96px; box-sizing: border-box">
-<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A78BFA">Who we are</p>
-<h1 style="margin: 0; max-width: 16em; font-family: Oswald, sans-serif; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance">A construction company based in Metro Vancouver.</h1>
-<p style="margin: 24px 0 0; max-width: 36em; font-size: clamp(17px, 1.9vw, 20px); color: #B4B4C0">We deliver construction work across British Columbia, and safety comes first on every job.</p>
+<section class="hero-photo" style="background: #0B0B10; color: #F5F5F7">
+<picture><source media="(max-width: 899px)" srcset="/hero-team-mobile-720.webp 720w, /hero-team-mobile.webp 1200w" sizes="100vw"><img class="hero-img" src="/hero-team.webp" srcset="/hero-team-960.webp 960w, /hero-team.webp 1920w" sizes="100vw" width="1920" height="1080" alt="" fetchpriority="high" decoding="async"></picture>
+<div class="hero-fade" aria-hidden="true"></div>
+<div class="hero-in">
+<h1 style="margin: 0; font-family: Oswald, sans-serif; font-size: clamp(38px, 5.4vw, 64px); line-height: 1.08; letter-spacing: 0.02em; font-weight: 400; text-transform: uppercase; text-wrap: balance"><span style="display: block; margin: 0 0 16px; font-family: Inter, system-ui, sans-serif; font-size: 13px; line-height: 1.6; font-weight: 600; letter-spacing: 0.18em; color: #A78BFA">Construction company<span class="eb-loc"> &middot; Metro Vancouver, BC</span></span>
+The team behind the build.</h1>
+<p style="margin: 24px 0 0; font-size: clamp(17px, 1.9vw, 20px); color: #B4B4C0">We plan the work with you, supervise it on site and keep safety first on every shift.</p>
 </div>
 </section>
+<script>
+(function () {
+  var hero = document.querySelector('.hero-photo');
+  if (hero === null || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var img = hero.querySelector('.hero-img'), opened = false;
+  function open() {
+    if (opened) return;
+    opened = true;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { hero.classList.add('hero-open'); }); });
+  }
+  if (img === null || img.complete) open();
+  else { img.addEventListener('load', open); img.addEventListener('error', open); setTimeout(open, 3000); }
+  // On scroll the dark edge moves from where the filter is solid until it covers the photo.
+  // X repeats the solid width of .hero-fade (--hx).
+  var bottom = 0, W = 0, X = 0, ticking = false;
+  function update() {
+    ticking = false;
+    if (W === 0) return;
+    var p = Math.min(Math.max(window.scrollY / bottom, 0), 1);
+    hero.style.setProperty('--ht', ((X - W - 240) * (1 - p)).toFixed(1) + 'px');
+  }
+  function measure() {
+    var r = hero.getBoundingClientRect(), vw = window.innerWidth;
+    bottom = Math.max(r.bottom + window.scrollY, 1);
+    W = r.width;
+    X = Math.max(24, vw / 2 - 536) + 26 * Math.min(Math.max(17, vw * 0.019), 20) + 24;
+    update();
+  }
+  window.addEventListener('scroll', function () { if (ticking === false) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', function () { requestAnimationFrame(function () { setTimeout(measure, 0); }); });
+})();
+</script>
 
 <section aria-label="Our company" style="background: #FFFFFF">
 <div style="max-width: 1120px; margin: 0 auto; padding: 104px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: flex-start">
